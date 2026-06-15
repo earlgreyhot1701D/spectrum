@@ -1,21 +1,25 @@
-## What went wrong
-The reference image already has the title, paragraphs, and button rendered into the pixels. When I used it as a background AND overlaid live text, everything doubled. When I removed the background, you lost the artwork. Neither matched the reference.
+## Button details from the reference (zoomed)
+- Cream rectangular plaque, ~3:1 aspect.
+- **Outer gold border with small notched corners** (each corner has a tiny diagonal cut/chamfer).
+- **Inner gold hairline frame** inset by ~10px, also with matching notched corners.
+- "BEGIN RESTORATION" in a refined serif, dark brown ink, wide letter-spacing.
+- **Small gold palmette/fan ornament centered below the text**, inside the plaque.
+- Soft drop shadow.
+
+## Current state vs target
+Current button: cream fill + 1px outer border + 1px inner hairline + ornament rendered OUTSIDE the plaque. Missing the **notched corners** on both frames, and the ornament is below the plaque instead of inside it.
 
 ## Fix
-1. Use AI image editing to produce a **clean version of the reference** with the text/button removed but the gallery scene, mosaic, stained glass, and torn-canvas shards intact. Save as a new CDN asset.
-2. Set that clean image as the full-bleed background of `/`.
-3. Re-render the live text on top so layout/copy match the reference exactly:
-   - "Spectrum" in a serif that visually matches the reference (Cormorant Garamond is close; if needed I'll swap to Cormorant SC or Cinzel for a closer match).
-   - Two cream paragraphs with the ember-colored "Tonight, a gallery waits to be restored." line.
-   - Small gold ornament between them.
-4. Button: this is the one spot where your earlier correction conflicts with the reference. The reference shows a **cream-filled plaque with gold border and inner gold hairline**. Your earlier instruction was **transparent background, gold border only**.
+Rebuild the button using an inline SVG frame so the notched corners render precisely:
 
-## One decision I need from you
-Which wins for the BEGIN RESTORATION button?
-- **A. Match the reference exactly** — cream-filled plaque, gold border, inner gold hairline, small ornament beneath.
-- **B. Keep your override** — transparent background, gold border only (current behavior).
+1. Replace the `<button>` markup with a container that holds:
+   - An absolutely-positioned SVG drawing two concentric rounded-octagon (notched-rectangle) gold strokes — outer at the plaque edge, inner inset ~10px.
+   - The cream fill rendered as the SVG's outer path fill (`#f3ead3`) so the notches cut into the fill, not just the stroke.
+   - Centered content: "BEGIN RESTORATION" (Cormorant Garamond, ~15px, letter-spacing 0.35em, color `#3a2f1d`) and the palmette ornament SVG below it.
+2. Notch geometry: ~10px diagonal cut at each of the 4 corners, on both frames.
+3. Palmette ornament: small fan/sunburst SVG in gold (`#c9a84c`), ~24px wide, sitting ~6px below the text, inside the inner frame.
+4. Soft shadow: `0 14px 36px rgba(0,0,0,0.5)`.
+5. Keep the existing Framer Motion entrance + hover/tap.
+6. Remove the standalone ornament SVG currently rendered below the button.
 
-## Font question
-Do you want me to try a closer serif match (e.g. Cinzel or EB Garamond) if Cormorant Garamond still reads as "different"? Or keep Cormorant Garamond?
-
-Once you answer, I'll generate the cleaned background, swap it in, and align the typography.
+No other changes — text, paragraphs, title, background all stay as they are.
