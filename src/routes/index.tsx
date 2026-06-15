@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import landingBg from "@/assets/landing-page.png.asset.json";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -28,11 +28,7 @@ const item = {
 
 function Index() {
   return (
-    <section
-      className="relative min-h-screen w-full overflow-hidden bg-[#1a1a1a] bg-cover bg-center"
-      style={{ backgroundImage: `url(${landingBg.url})` }}
-    >
-      <div className="absolute inset-0 bg-black/30" />
+    <section className="relative min-h-screen w-full overflow-hidden bg-[#1a1a1a]">
 
       <motion.div
         variants={container}
