@@ -1,65 +1,21 @@
-## Goal
-Build the Spectrum landing page to match the provided reference image precisely, plus stub routes for the remaining pages. No nav, header, footer, or extra chrome.
+## What went wrong
+The reference image already has the title, paragraphs, and button rendered into the pixels. When I used it as a background AND overlaid live text, everything doubled. When I removed the background, you lost the artwork. Neither matched the reference.
 
-## Stack (existing — no changes)
-- React 19 + TypeScript + Vite 7 + TanStack Start + TanStack Router
-- Tailwind CSS v4
-- Framer Motion (new: `bun add framer-motion@^11`)
+## Fix
+1. Use AI image editing to produce a **clean version of the reference** with the text/button removed but the gallery scene, mosaic, stained glass, and torn-canvas shards intact. Save as a new CDN asset.
+2. Set that clean image as the full-bleed background of `/`.
+3. Re-render the live text on top so layout/copy match the reference exactly:
+   - "Spectrum" in a serif that visually matches the reference (Cormorant Garamond is close; if needed I'll swap to Cormorant SC or Cinzel for a closer match).
+   - Two cream paragraphs with the ember-colored "Tonight, a gallery waits to be restored." line.
+   - Small gold ornament between them.
+4. Button: this is the one spot where your earlier correction conflicts with the reference. The reference shows a **cream-filled plaque with gold border and inner gold hairline**. Your earlier instruction was **transparent background, gold border only**.
 
-## Routes
-Create route files so TanStack Router generates these URLs:
-- `/` — Landing page (full implementation)
-- `/gallery/:id` → file `src/routes/gallery.$id.tsx`
-- `/reveal/:id` → file `src/routes/reveal.$id.tsx`
-- `/final` → file `src/routes/final.tsx`
-- `/credits` → file `src/routes/credits.tsx`
+## One decision I need from you
+Which wins for the BEGIN RESTORATION button?
+- **A. Match the reference exactly** — cream-filled plaque, gold border, inner gold hairline, small ornament beneath.
+- **B. Keep your override** — transparent background, gold border only (current behavior).
 
-Each stub route renders only `<div>{PageName}</div>` on background `#1a1a1a`.
+## Font question
+Do you want me to try a closer serif match (e.g. Cinzel or EB Garamond) if Cormorant Garamond still reads as "different"? Or keep Cormorant Garamond?
 
-## Landing page (`src/routes/index.tsx`)
-Full-viewport `<section>` with:
-- Background: `landing-page.png` as `bg-cover` with dark overlay
-- Centered stack:
-  - Title "Spectrum" in Cormorant Garamond, color `#f3ead3`, size `clamp(80px, 12vw, 180px)`
-  - Thin gold hairline divider (`#c9a84c`)
-  - Two cream paragraphs (`#f3ead3`)
-  - Small gold ornament
-  - Accent line (`#d97a5e`)
-  - "BEGIN RESTORATION" button: **transparent background**, 1px gold border (`#c9a84c`), cream text, uppercase, `tracking-[0.3em]`
-- Framer Motion staggered fade-in-up entrance animation
-- No nav, no header, no footer, no icons
-
-## Global styles (`src/styles.css`)
-- Background: `#1a1a1a`
-- Body font: Inter (Google Fonts)
-- CSS vars: `--cream: #f3ead3`, `--gold: #c9a84c`, `--ember: #d97a5e`
-
-## Folder structure
-```
-public/
-  artwork/
-  audio/
-src/
-  assets/
-    landing-page.png
-  components/
-    SpectrumHero.tsx
-  routes/
-    index.tsx
-    gallery.$id.tsx
-    reveal.$id.tsx
-    final.tsx
-    credits.tsx
-  styles.css
-```
-
-## Fonts
-Load Cormorant Garamond and Inter via `<link>` in `src/routes/__root.tsx` `head().links`.
-
-## Title
-Update `__root.tsx` title to "Spectrum".
-
-## Verification
-- Landing page at `/` matches reference image
-- All other routes render placeholder divs on `#1a1a1a`
-- Zero TypeScript errors, zero console errors
+Once you answer, I'll generate the cleaned background, swap it in, and align the typography.
