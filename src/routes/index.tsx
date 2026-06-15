@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-
+import landingBg from "@/assets/landing-bg.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -16,19 +16,21 @@ export const Route = createFileRoute("/")({
 
 const container = {
   hidden: {},
-  show: {
-    transition: { staggerChildren: 0.18, delayChildren: 0.1 },
-  },
+  show: { transition: { staggerChildren: 0.16, delayChildren: 0.1 } },
 };
 
 const item = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0, transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] as const } },
 };
 
 function Index() {
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-[#1a1a1a]">
+    <section
+      className="relative min-h-screen w-full overflow-hidden bg-[#1a1a1a] bg-cover bg-center"
+      style={{ backgroundImage: `url(${landingBg.url})` }}
+    >
+      <div className="absolute inset-0 bg-black/20" />
 
       <motion.div
         variants={container}
@@ -38,27 +40,33 @@ function Index() {
       >
         <motion.h1
           variants={item}
-          className="font-serif text-[#f3ead3] leading-none"
+          className="text-[#f3ead3] leading-none"
           style={{
             fontFamily: '"Cormorant Garamond", serif',
-            fontSize: "clamp(80px, 12vw, 180px)",
+            fontSize: "clamp(72px, 11vw, 168px)",
             fontWeight: 500,
-            letterSpacing: "-0.01em",
+            letterSpacing: "-0.005em",
+            textShadow: "0 2px 30px rgba(0,0,0,0.55)",
           }}
         >
           Spectrum
         </motion.h1>
 
-        <motion.div
+        <motion.svg
           variants={item}
-          className="mt-2 h-px w-40"
-          style={{ background: "linear-gradient(90deg, transparent, #c9a84c, transparent)" }}
-        />
+          width="220"
+          height="14"
+          viewBox="0 0 220 14"
+          className="mt-1 text-[#c9a84c]"
+          aria-hidden
+        >
+          <path d="M10 7 Q110 14 210 7" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.85" />
+        </motion.svg>
 
         <motion.p
           variants={item}
-          className="mt-10 max-w-xl text-[#f3ead3]/90 leading-relaxed"
-          style={{ fontSize: "clamp(15px, 1.1vw, 17px)" }}
+          className="mt-10 max-w-xl text-[#f3ead3]/95 leading-[1.9]"
+          style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(14px, 1vw, 16px)" }}
         >
           Restore artworks inspired by the colors,
           <br />
@@ -68,19 +76,19 @@ function Index() {
         </motion.p>
 
         <motion.div variants={item} className="mt-8 text-[#c9a84c]" aria-hidden>
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             <path
-              d="M11 1.5 L12 10 L20.5 11 L12 12 L11 20.5 L10 12 L1.5 11 L10 10 Z"
+              d="M10 1 L10.8 9.2 L19 10 L10.8 10.8 L10 19 L9.2 10.8 L1 10 L9.2 9.2 Z"
               fill="currentColor"
-              opacity="0.85"
+              opacity="0.9"
             />
           </svg>
         </motion.div>
 
         <motion.p
           variants={item}
-          className="mt-8 max-w-xl text-[#f3ead3]/90 leading-relaxed"
-          style={{ fontSize: "clamp(15px, 1.1vw, 17px)" }}
+          className="mt-8 max-w-xl text-[#f3ead3]/95 leading-[1.9]"
+          style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(14px, 1vw, 16px)" }}
         >
           Throughout history, people have used art,
           <br />
@@ -91,25 +99,61 @@ function Index() {
 
         <motion.p
           variants={item}
-          className="mt-4"
-          style={{ color: "#d97a5e", fontSize: "clamp(15px, 1.1vw, 17px)" }}
+          className="mt-3"
+          style={{
+            color: "#d97a5e",
+            fontFamily: "Inter, sans-serif",
+            fontSize: "clamp(14px, 1vw, 16px)",
+          }}
         >
           Tonight, a gallery waits to be restored.
         </motion.p>
 
+        {/* Cream plaque button — matches reference */}
         <motion.button
           variants={item}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          className="mt-12 border border-[#c9a84c] bg-transparent px-12 py-4 text-[#f3ead3] uppercase transition-colors hover:bg-[#c9a84c]/10"
+          whileHover={{ scale: 1.015 }}
+          whileTap={{ scale: 0.985 }}
+          className="group relative mt-12 px-14 py-5"
           style={{
-            fontFamily: '"Cormorant Garamond", serif',
-            letterSpacing: "0.3em",
-            fontSize: "14px",
+            backgroundColor: "#f3ead3",
+            border: "1px solid #c9a84c",
+            boxShadow: "0 10px 30px rgba(0,0,0,0.45)",
           }}
         >
-          Begin Restoration
+          {/* inner hairline */}
+          <span
+            className="pointer-events-none absolute inset-[6px] border"
+            style={{ borderColor: "rgba(201,168,76,0.55)" }}
+          />
+          <span
+            className="relative block text-[#3a2f1d]"
+            style={{
+              fontFamily: '"Cormorant Garamond", serif',
+              fontSize: "15px",
+              letterSpacing: "0.35em",
+            }}
+          >
+            BEGIN RESTORATION
+          </span>
         </motion.button>
+
+        <motion.svg
+          variants={item}
+          width="36"
+          height="14"
+          viewBox="0 0 36 14"
+          className="mt-3 text-[#c9a84c]"
+          aria-hidden
+        >
+          <path
+            d="M2 7 Q9 2 18 7 Q27 12 34 7 M18 7 L18 12"
+            stroke="currentColor"
+            strokeWidth="1"
+            fill="none"
+            opacity="0.7"
+          />
+        </motion.svg>
       </motion.div>
     </section>
   );
