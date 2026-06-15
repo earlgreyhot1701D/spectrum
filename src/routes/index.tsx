@@ -40,8 +40,9 @@ function Index() {
       >
         <motion.h1
           variants={item}
-          className="text-[#f3ead3] leading-none"
+          className="leading-none"
           style={{
+            color: "var(--spectrum-cream)",
             fontFamily: '"Cormorant Garamond", serif',
             fontSize: "clamp(72px, 11vw, 168px)",
             fontWeight: 500,
@@ -57,7 +58,8 @@ function Index() {
           width="220"
           height="14"
           viewBox="0 0 220 14"
-          className="mt-1 text-[#c9a84c]"
+          className="mt-1"
+          style={{ color: "var(--spectrum-gold)" }}
           aria-hidden
         >
           <path d="M10 7 Q110 14 210 7" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.85" />
@@ -65,17 +67,20 @@ function Index() {
 
         <motion.p
           variants={item}
-          className="mt-10 max-w-xl text-[#f3ead3]/95 leading-[1.9]"
-          style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(14px, 1vw, 16px)" }}
+          className="mt-10 leading-[1.9]"
+          style={{
+            color: "var(--spectrum-cream)",
+            opacity: 0.95,
+            fontFamily: "Inter, sans-serif",
+            fontSize: "clamp(14px, 1vw, 16px)",
+            maxWidth: "34rem",
+            marginInline: "auto",
+          }}
         >
-          Restore artworks inspired by the colors,
-          <br />
-          symbols, and stories that help communities
-          <br />
-          express identity and belonging.
+          Restore artworks inspired by the colors, symbols, and stories that help communities express identity and belonging.
         </motion.p>
 
-        <motion.div variants={item} className="mt-8 text-[#c9a84c]" aria-hidden>
+        <motion.div variants={item} className="mt-8" style={{ color: "var(--spectrum-gold)" }} aria-hidden>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             <path
               d="M10 1 L10.8 9.2 L19 10 L10.8 10.8 L10 19 L9.2 10.8 L1 10 L9.2 9.2 Z"
@@ -87,21 +92,24 @@ function Index() {
 
         <motion.p
           variants={item}
-          className="mt-8 max-w-xl text-[#f3ead3]/95 leading-[1.9]"
-          style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(14px, 1vw, 16px)" }}
+          className="mt-8 leading-[1.9]"
+          style={{
+            color: "var(--spectrum-cream)",
+            opacity: 0.95,
+            fontFamily: "Inter, sans-serif",
+            fontSize: "clamp(14px, 1vw, 16px)",
+            maxWidth: "34rem",
+            marginInline: "auto",
+          }}
         >
-          Throughout history, people have used art,
-          <br />
-          color, and symbols to tell stories about
-          <br />
-          who they are and where they belong.
+          Throughout history, people have used art, color, and symbols to tell stories about who they are and where they belong.
         </motion.p>
 
         <motion.p
           variants={item}
           className="mt-3"
           style={{
-            color: "#d97a5e",
+            color: "var(--spectrum-ember)",
             fontFamily: "Inter, sans-serif",
             fontSize: "clamp(14px, 1vw, 16px)",
           }}
@@ -114,10 +122,11 @@ function Index() {
           variants={item}
           whileHover={{ scale: 1.015 }}
           whileTap={{ scale: 0.985 }}
-          className="relative mt-12"
+          className="relative mt-12 block"
           style={{
-            width: 360,
-            height: 110,
+            width: "100%",
+            maxWidth: 360,
+            aspectRatio: "360 / 110",
             filter: "drop-shadow(0 14px 36px rgba(0,0,0,0.5))",
             background: "transparent",
             border: "none",
@@ -128,23 +137,24 @@ function Index() {
         >
           <svg
             viewBox="0 0 360 110"
-            width="360"
-            height="110"
+            preserveAspectRatio="none"
+            width="100%"
+            height="100%"
             className="absolute inset-0"
             aria-hidden
           >
             {/* Outer plaque with notched corners */}
             <path
               d="M10,0 L350,0 L360,10 L360,100 L350,110 L10,110 L0,100 L0,10 Z"
-              fill="#f3ead3"
-              stroke="#c9a84c"
+              fill="var(--spectrum-cream)"
+              stroke="var(--spectrum-gold)"
               strokeWidth="1.25"
             />
             {/* Inner hairline frame with matching notches */}
             <path
               d="M16,8 L344,8 L352,16 L352,94 L344,102 L16,102 L8,94 L8,16 Z"
               fill="none"
-              stroke="#c9a84c"
+              stroke="var(--spectrum-gold)"
               strokeWidth="0.75"
               opacity="0.7"
             />
@@ -154,9 +164,9 @@ function Index() {
             <span
               style={{
                 fontFamily: '"Cormorant Garamond", serif',
-                fontSize: "16px",
+                fontSize: "clamp(13px, 1.6vw, 16px)",
                 letterSpacing: "0.38em",
-                color: "#3a2f1d",
+                color: "var(--spectrum-ink)",
                 fontWeight: 500,
               }}
             >
@@ -170,7 +180,7 @@ function Index() {
               className="mt-2"
               aria-hidden
             >
-              <g fill="#c9a84c" opacity="0.85">
+              <g fill="var(--spectrum-gold)" opacity="0.85">
                 <path d="M14 1 L15 6 L14 11 L13 6 Z" />
                 <path d="M14 6 Q10 3 6 6 Q10 4 14 6 Z" />
                 <path d="M14 6 Q18 3 22 6 Q18 4 14 6 Z" />
