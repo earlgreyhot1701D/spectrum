@@ -109,51 +109,78 @@ function Index() {
           Tonight, a gallery waits to be restored.
         </motion.p>
 
-        {/* Cream plaque button — matches reference */}
+        {/* Cream plaque button with notched corners — matches reference */}
         <motion.button
           variants={item}
           whileHover={{ scale: 1.015 }}
           whileTap={{ scale: 0.985 }}
-          className="group relative mt-12 px-14 py-5"
+          className="relative mt-12"
           style={{
-            backgroundColor: "#f3ead3",
-            border: "1px solid #c9a84c",
-            boxShadow: "0 10px 30px rgba(0,0,0,0.45)",
+            width: 360,
+            height: 110,
+            filter: "drop-shadow(0 14px 36px rgba(0,0,0,0.5))",
+            background: "transparent",
+            border: "none",
+            padding: 0,
+            cursor: "pointer",
           }}
+          aria-label="Begin Restoration"
         >
-          {/* inner hairline */}
-          <span
-            className="pointer-events-none absolute inset-[6px] border"
-            style={{ borderColor: "rgba(201,168,76,0.55)" }}
-          />
-          <span
-            className="relative block text-[#3a2f1d]"
-            style={{
-              fontFamily: '"Cormorant Garamond", serif',
-              fontSize: "15px",
-              letterSpacing: "0.35em",
-            }}
+          <svg
+            viewBox="0 0 360 110"
+            width="360"
+            height="110"
+            className="absolute inset-0"
+            aria-hidden
           >
-            BEGIN RESTORATION
+            {/* Outer plaque with notched corners */}
+            <path
+              d="M10,0 L350,0 L360,10 L360,100 L350,110 L10,110 L0,100 L0,10 Z"
+              fill="#f3ead3"
+              stroke="#c9a84c"
+              strokeWidth="1.25"
+            />
+            {/* Inner hairline frame with matching notches */}
+            <path
+              d="M16,8 L344,8 L352,16 L352,94 L344,102 L16,102 L8,94 L8,16 Z"
+              fill="none"
+              stroke="#c9a84c"
+              strokeWidth="0.75"
+              opacity="0.7"
+            />
+          </svg>
+
+          <span className="relative z-10 flex h-full w-full flex-col items-center justify-center">
+            <span
+              style={{
+                fontFamily: '"Cormorant Garamond", serif',
+                fontSize: "16px",
+                letterSpacing: "0.38em",
+                color: "#3a2f1d",
+                fontWeight: 500,
+              }}
+            >
+              BEGIN RESTORATION
+            </span>
+            {/* Palmette ornament inside plaque */}
+            <svg
+              width="28"
+              height="12"
+              viewBox="0 0 28 12"
+              className="mt-2"
+              aria-hidden
+            >
+              <g fill="#c9a84c" opacity="0.85">
+                <path d="M14 1 L15 6 L14 11 L13 6 Z" />
+                <path d="M14 6 Q10 3 6 6 Q10 4 14 6 Z" />
+                <path d="M14 6 Q18 3 22 6 Q18 4 14 6 Z" />
+                <path d="M14 6 Q9 5 4 8 Q9 6 14 6 Z" />
+                <path d="M14 6 Q19 5 24 8 Q19 6 14 6 Z" />
+              </g>
+            </svg>
           </span>
         </motion.button>
 
-        <motion.svg
-          variants={item}
-          width="36"
-          height="14"
-          viewBox="0 0 36 14"
-          className="mt-3 text-[#c9a84c]"
-          aria-hidden
-        >
-          <path
-            d="M2 7 Q9 2 18 7 Q27 12 34 7 M18 7 L18 12"
-            stroke="currentColor"
-            strokeWidth="1"
-            fill="none"
-            opacity="0.7"
-          />
-        </motion.svg>
       </motion.div>
     </section>
   );
