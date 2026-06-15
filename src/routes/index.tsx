@@ -44,9 +44,9 @@ function Index() {
           style={{
             color: "var(--spectrum-cream)",
             fontFamily: '"Cormorant Garamond", serif',
-            fontSize: "clamp(72px, 11vw, 168px)",
+            fontSize: "clamp(64px, 10vw, 144px)",
             fontWeight: 500,
-            letterSpacing: "-0.005em",
+            letterSpacing: "-0.02em",
             textShadow: "0 2px 30px rgba(0,0,0,0.55)",
           }}
         >
@@ -67,12 +67,13 @@ function Index() {
 
         <motion.p
           variants={item}
-          className="mt-10 leading-[1.9]"
+          className="mt-6"
           style={{
             color: "var(--spectrum-cream)",
-            opacity: 0.95,
+            opacity: 1,
             fontFamily: "Inter, sans-serif",
-            fontSize: "clamp(14px, 1vw, 16px)",
+            fontSize: "clamp(16px, 1.2vw, 19px)",
+            lineHeight: 1.6,
             maxWidth: "34rem",
             marginInline: "auto",
           }}
@@ -80,7 +81,7 @@ function Index() {
           Restore artworks inspired by the colors, symbols, and stories that help communities express identity and belonging.
         </motion.p>
 
-        <motion.div variants={item} className="mt-8" style={{ color: "var(--spectrum-gold)" }} aria-hidden>
+        <motion.div variants={item} className="mt-12" style={{ color: "var(--spectrum-gold)" }} aria-hidden>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             <path
               d="M10 1 L10.8 9.2 L19 10 L10.8 10.8 L10 19 L9.2 10.8 L1 10 L9.2 9.2 Z"
@@ -92,12 +93,13 @@ function Index() {
 
         <motion.p
           variants={item}
-          className="mt-8 leading-[1.9]"
+          className="mt-6"
           style={{
             color: "var(--spectrum-cream)",
-            opacity: 0.95,
+            opacity: 0.75,
             fontFamily: "Inter, sans-serif",
             fontSize: "clamp(14px, 1vw, 16px)",
+            lineHeight: 1.65,
             maxWidth: "34rem",
             marginInline: "auto",
           }}
@@ -112,6 +114,8 @@ function Index() {
             color: "var(--spectrum-ember)",
             fontFamily: "Inter, sans-serif",
             fontSize: "clamp(14px, 1vw, 16px)",
+            fontStyle: "italic",
+            letterSpacing: "0.02em",
           }}
         >
           Tonight, a gallery waits to be restored.
@@ -122,11 +126,11 @@ function Index() {
           variants={item}
           whileHover={{ scale: 1.015 }}
           whileTap={{ scale: 0.985 }}
-          className="relative mt-12 block"
+          className="relative mt-8 block"
           style={{
             width: "100%",
-            maxWidth: 360,
-            aspectRatio: "360 / 110",
+            maxWidth: 260,
+            aspectRatio: "260 / 64",
             filter: "drop-shadow(0 14px 36px rgba(0,0,0,0.5))",
             background: "transparent",
             border: "none",
@@ -160,36 +164,21 @@ function Index() {
             />
           </svg>
 
-          <span className="relative z-10 flex h-full w-full flex-col items-center justify-center">
+          <span className="relative z-10 flex h-full w-full items-center justify-center">
             <span
               style={{
-                fontFamily: '"Cormorant Garamond", serif',
-                fontSize: "clamp(13px, 1.6vw, 16px)",
-                letterSpacing: "0.38em",
+                fontFamily: "Inter, sans-serif",
+                fontSize: "clamp(11px, 1.1vw, 13px)",
+                letterSpacing: "0.22em",
                 color: "var(--spectrum-ink)",
-                fontWeight: 500,
+                fontWeight: 600,
               }}
             >
               BEGIN RESTORATION
             </span>
-            {/* Palmette ornament inside plaque */}
-            <svg
-              width="28"
-              height="12"
-              viewBox="0 0 28 12"
-              className="mt-2"
-              aria-hidden
-            >
-              <g fill="var(--spectrum-gold)" opacity="0.85">
-                <path d="M14 1 L15 6 L14 11 L13 6 Z" />
-                <path d="M14 6 Q10 3 6 6 Q10 4 14 6 Z" />
-                <path d="M14 6 Q18 3 22 6 Q18 4 14 6 Z" />
-                <path d="M14 6 Q9 5 4 8 Q9 6 14 6 Z" />
-                <path d="M14 6 Q19 5 24 8 Q19 6 14 6 Z" />
-              </g>
-            </svg>
           </span>
         </motion.button>
+
 
       </motion.div>
     </section>
