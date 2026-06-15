@@ -63,7 +63,11 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
+  --background: #1a1a1a;
+  --spectrum-cream: #f3ead3;
+  --spectrum-gold: #c9a84c;
+  --spectrum-ember: #d97a5e;
+  --x-unused: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
@@ -138,7 +142,8 @@
   }
 
   body {
-    background-color: var(--color-background);
+    background-color: #1a1a1a;
     color: var(--color-foreground);
+    font-family: "Inter", system-ui, sans-serif;
   }
 }
