@@ -9,38 +9,92 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as FinalRouteImport } from './routes/final'
+import { Route as CreditsRouteImport } from './routes/credits'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as RevealIdRouteImport } from './routes/reveal.$id'
+import { Route as GalleryIdRouteImport } from './routes/gallery.$id'
 
+const FinalRoute = FinalRouteImport.update({
+  id: '/final',
+  path: '/final',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CreditsRoute = CreditsRouteImport.update({
+  id: '/credits',
+  path: '/credits',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RevealIdRoute = RevealIdRouteImport.update({
+  id: '/reveal/$id',
+  path: '/reveal/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryIdRoute = GalleryIdRouteImport.update({
+  id: '/gallery/$id',
+  path: '/gallery/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/credits': typeof CreditsRoute
+  '/final': typeof FinalRoute
+  '/gallery/$id': typeof GalleryIdRoute
+  '/reveal/$id': typeof RevealIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/credits': typeof CreditsRoute
+  '/final': typeof FinalRoute
+  '/gallery/$id': typeof GalleryIdRoute
+  '/reveal/$id': typeof RevealIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/credits': typeof CreditsRoute
+  '/final': typeof FinalRoute
+  '/gallery/$id': typeof GalleryIdRoute
+  '/reveal/$id': typeof RevealIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/credits' | '/final' | '/gallery/$id' | '/reveal/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/credits' | '/final' | '/gallery/$id' | '/reveal/$id'
+  id: '__root__' | '/' | '/credits' | '/final' | '/gallery/$id' | '/reveal/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CreditsRoute: typeof CreditsRoute
+  FinalRoute: typeof FinalRoute
+  GalleryIdRoute: typeof GalleryIdRoute
+  RevealIdRoute: typeof RevealIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/final': {
+      id: '/final'
+      path: '/final'
+      fullPath: '/final'
+      preLoaderRoute: typeof FinalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/credits': {
+      id: '/credits'
+      path: '/credits'
+      fullPath: '/credits'
+      preLoaderRoute: typeof CreditsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +102,29 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/reveal/$id': {
+      id: '/reveal/$id'
+      path: '/reveal/$id'
+      fullPath: '/reveal/$id'
+      preLoaderRoute: typeof RevealIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery/$id': {
+      id: '/gallery/$id'
+      path: '/gallery/$id'
+      fullPath: '/gallery/$id'
+      preLoaderRoute: typeof GalleryIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CreditsRoute: CreditsRoute,
+  FinalRoute: FinalRoute,
+  GalleryIdRoute: GalleryIdRoute,
+  RevealIdRoute: RevealIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
