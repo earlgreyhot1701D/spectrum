@@ -78,15 +78,35 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Spectrum - Restore. Remember. Belong." },
-      { name: "description", content: "Spectrum — an art restoration game celebrating LGBTQIA+ identity, community, and belonging." },
+      {
+        name: "description",
+        content:
+          "Spectrum — an art restoration game celebrating LGBTQIA+ identity, community, and belonging.",
+      },
       { property: "og:title", content: "Spectrum - Restore. Remember. Belong." },
-      { property: "og:description", content: "Spectrum — an art restoration game celebrating LGBTQIA+ identity, community, and belonging." },
+      {
+        property: "og:description",
+        content:
+          "Spectrum — an art restoration game celebrating LGBTQIA+ identity, community, and belonging.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:title", content: "Spectrum - Restore. Remember. Belong." },
-      { name: "twitter:description", content: "Spectrum — an art restoration game celebrating LGBTQIA+ identity, community, and belonging." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/RyHI2Ytwq0Z34TNHZXMpmB3dIaC2/social-images/social-1781581820246-ChatGPT_Image_Jun_15,_2026,_08_49_36_PM.webp" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/RyHI2Ytwq0Z34TNHZXMpmB3dIaC2/social-images/social-1781581820246-ChatGPT_Image_Jun_15,_2026,_08_49_36_PM.webp" },
+      {
+        name: "twitter:description",
+        content:
+          "Spectrum — an art restoration game celebrating LGBTQIA+ identity, community, and belonging.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/RyHI2Ytwq0Z34TNHZXMpmB3dIaC2/social-images/social-1781581820246-ChatGPT_Image_Jun_15,_2026,_08_49_36_PM.webp",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/RyHI2Ytwq0Z34TNHZXMpmB3dIaC2/social-images/social-1781581820246-ChatGPT_Image_Jun_15,_2026,_08_49_36_PM.webp",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
