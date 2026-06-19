@@ -1,9 +1,9 @@
-# Spectrum — Codex Build Instructions v1.4
+# Spectrum — Codex Build Instructions v1.5
 
 **Status:** Approved for Production  
 **Audience:** AI Coding Agents (primary: Codex), Human Contributors  
-**Supersedes:** Codex Build Instructions v1.3  
-**Changes in v1.4:** Complete mechanic change. Drag-and-drop puzzle removed entirely. Progressive artwork reveal via trivia questions is the new core mechanic. Milestones rewritten. Puzzle implementation rules removed. New route /lesson/:id added. Acceptance criteria updated.
+**Supersedes:** Codex Build Instructions v1.4  
+**Changes in v1.5:** Self-check layer added. Loop guardrails added. Token budget controls added. Hard stop rules added.
 
 ---
 
@@ -31,7 +31,69 @@ All implementation decisions must align with these documents. `prd.md` is the pr
 
 ---
 
-## Source of Truth Priority
+## Token Budget Controls
+
+These rules exist to prevent runaway agent loops and unnecessary token spend. They are non-negotiable.
+
+### Hard Stop Rules
+
+**STOP and report to the human if any of these occur:**
+
+1. **You have made 3 attempts to fix the same error and it is still failing.** Do not attempt a 4th fix. Report what you tried and what failed.
+
+2. **You are about to install a new dependency.** Stop. State the package name, why you need it, and what alternative exists. Do not install without human approval.
+
+3. **You are about to modify a file outside the current milestone scope.** Stop. State which file and why. Do not modify without human approval.
+
+4. **TypeScript errors exceed 5.** Stop. List the errors. Do not attempt bulk fixes.
+
+5. **You have been working on a single component for more than 3 iterations.** Stop. Report what is blocking you.
+
+6. **You are uncertain what to build.** Stop. Ask. Do not guess and implement.
+
+### Loop Prevention
+
+Before starting any task, state:
+- What file you are about to create or modify
+- What the expected output is
+- How you will verify it worked
+
+After completing any task, state:
+- What you built
+- What the self-check result was (PASS or FAIL)
+- What the next task is
+
+If a self-check fails, fix it once. If it fails again, stop and report.
+
+### Scope Lockdown
+
+You are working on **one milestone at a time**. If you finish a milestone and the self-check passes, stop and report completion. Do not begin the next milestone without human confirmation.
+
+Do not refactor code outside the file you are currently implementing. If you see something wrong in another file, note it in your report. Do not fix it.
+
+---
+
+## Self-Check Protocol
+
+Every milestone has a self-check. Run it before declaring the milestone complete. Report each item as PASS or FAIL.
+
+**If any item is FAIL:** fix it, re-run the check, report again. If it fails twice, stop and report to human.
+
+**Self-check format:**
+```
+MILESTONE 0 SELF-CHECK
+[ ] Can navigate / → /gallery/1 → /reveal/1 → /lesson/1 — PASS/FAIL
+[ ] 4 questions display and each reveals one overlay section — PASS/FAIL
+[ ] Wrong answer shows correct answer and explanation — PASS/FAIL
+[ ] Full artwork visible after question 4 — PASS/FAIL
+[ ] Zero console errors — PASS/FAIL
+[ ] Zero TypeScript errors — PASS/FAIL
+RESULT: PASS / FAIL
+```
+
+Do not mark a milestone complete unless all items are PASS.
+
+---
 
 When documents appear to conflict, follow this order:
 
