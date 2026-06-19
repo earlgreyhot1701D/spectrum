@@ -1,14 +1,22 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { motion } from "framer-motion";
+import { Link, createFileRoute } from "@tanstack/react-router";
+import { motion, useReducedMotion } from "framer-motion";
 import landingBg from "@/assets/landing-bg.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Spectrum" },
-      { name: "description", content: "Restore artworks inspired by the colors, symbols, and stories that help communities express identity and belonging." },
+      {
+        name: "description",
+        content:
+          "Restore artworks inspired by the colors, symbols, and stories that help communities express identity and belonging.",
+      },
       { property: "og:title", content: "Spectrum" },
-      { property: "og:description", content: "Restore artworks inspired by the colors, symbols, and stories that help communities express identity and belonging." },
+      {
+        property: "og:description",
+        content:
+          "Restore artworks inspired by the colors, symbols, and stories that help communities express identity and belonging.",
+      },
     ],
   }),
   component: Index,
@@ -25,6 +33,9 @@ const item = {
 };
 
 function Index() {
+  const prefersReducedMotion = useReducedMotion();
+  const initialState = prefersReducedMotion ? "show" : "hidden";
+
   return (
     <section
       className="relative min-h-screen w-full overflow-hidden bg-[#1a1a1a] bg-cover bg-center"
@@ -34,7 +45,7 @@ function Index() {
 
       <motion.div
         variants={container}
-        initial="hidden"
+        initial={initialState}
         animate="show"
         className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 text-center"
       >
@@ -62,7 +73,13 @@ function Index() {
           style={{ color: "var(--spectrum-gold)" }}
           aria-hidden
         >
-          <path d="M10 7 Q110 14 210 7" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.85" />
+          <path
+            d="M10 7 Q110 14 210 7"
+            stroke="currentColor"
+            strokeWidth="1"
+            fill="none"
+            opacity="0.85"
+          />
         </motion.svg>
 
         <motion.p
@@ -78,10 +95,16 @@ function Index() {
             marginInline: "auto",
           }}
         >
-          Restore artworks inspired by the colors, symbols, and stories that help communities express identity and belonging.
+          Restore artworks inspired by the colors, symbols, and stories that help communities
+          express identity and belonging.
         </motion.p>
 
-        <motion.div variants={item} className="mt-12" style={{ color: "var(--spectrum-gold)" }} aria-hidden>
+        <motion.div
+          variants={item}
+          className="mt-12"
+          style={{ color: "var(--spectrum-gold)" }}
+          aria-hidden
+        >
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             <path
               d="M10 1 L10.8 9.2 L19 10 L10.8 10.8 L10 19 L9.2 10.8 L1 10 L9.2 9.2 Z"
@@ -104,7 +127,8 @@ function Index() {
             marginInline: "auto",
           }}
         >
-          Throughout history, people have used art, color, and symbols to tell stories about who they are and where they belong.
+          Throughout history, people have used art, color, and symbols to tell stories about who
+          they are and where they belong.
         </motion.p>
 
         <motion.p
@@ -122,10 +146,10 @@ function Index() {
         </motion.p>
 
         {/* Cream plaque button with notched corners — matches reference */}
-        <motion.button
+        <motion.div
           variants={item}
-          whileHover={{ scale: 1.015 }}
-          whileTap={{ scale: 0.985 }}
+          whileHover={prefersReducedMotion ? undefined : { scale: 1.015 }}
+          whileTap={prefersReducedMotion ? undefined : { scale: 0.985 }}
           className="relative mt-8 block"
           style={{
             width: "100%",
@@ -137,7 +161,6 @@ function Index() {
             padding: 0,
             cursor: "pointer",
           }}
-          aria-label="Begin Restoration"
         >
           <svg
             viewBox="0 0 360 110"
@@ -164,7 +187,12 @@ function Index() {
             />
           </svg>
 
-          <span className="relative z-10 flex h-full w-full items-center justify-center">
+          <Link
+            to="/gallery/$id"
+            params={{ id: "1" }}
+            aria-label="Begin Restoration"
+            className="relative z-10 flex h-full w-full items-center justify-center"
+          >
             <span
               style={{
                 fontFamily: "Inter, sans-serif",
@@ -176,10 +204,8 @@ function Index() {
             >
               BEGIN RESTORATION
             </span>
-          </span>
-        </motion.button>
-
-
+          </Link>
+        </motion.div>
       </motion.div>
     </section>
   );
