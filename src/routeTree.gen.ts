@@ -13,6 +13,7 @@ import { Route as FinalRouteImport } from './routes/final'
 import { Route as CreditsRouteImport } from './routes/credits'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as RevealIdRouteImport } from './routes/reveal.$id'
+import { Route as LessonIdRouteImport } from './routes/lesson.$id'
 import { Route as GalleryIdRouteImport } from './routes/gallery.$id'
 
 const FinalRoute = FinalRouteImport.update({
@@ -35,6 +36,11 @@ const RevealIdRoute = RevealIdRouteImport.update({
   path: '/reveal/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LessonIdRoute = LessonIdRouteImport.update({
+  id: '/lesson/$id',
+  path: '/lesson/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GalleryIdRoute = GalleryIdRouteImport.update({
   id: '/gallery/$id',
   path: '/gallery/$id',
@@ -46,6 +52,7 @@ export interface FileRoutesByFullPath {
   '/credits': typeof CreditsRoute
   '/final': typeof FinalRoute
   '/gallery/$id': typeof GalleryIdRoute
+  '/lesson/$id': typeof LessonIdRoute
   '/reveal/$id': typeof RevealIdRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +60,7 @@ export interface FileRoutesByTo {
   '/credits': typeof CreditsRoute
   '/final': typeof FinalRoute
   '/gallery/$id': typeof GalleryIdRoute
+  '/lesson/$id': typeof LessonIdRoute
   '/reveal/$id': typeof RevealIdRoute
 }
 export interface FileRoutesById {
@@ -61,14 +69,34 @@ export interface FileRoutesById {
   '/credits': typeof CreditsRoute
   '/final': typeof FinalRoute
   '/gallery/$id': typeof GalleryIdRoute
+  '/lesson/$id': typeof LessonIdRoute
   '/reveal/$id': typeof RevealIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/credits' | '/final' | '/gallery/$id' | '/reveal/$id'
+  fullPaths:
+    | '/'
+    | '/credits'
+    | '/final'
+    | '/gallery/$id'
+    | '/lesson/$id'
+    | '/reveal/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/credits' | '/final' | '/gallery/$id' | '/reveal/$id'
-  id: '__root__' | '/' | '/credits' | '/final' | '/gallery/$id' | '/reveal/$id'
+  to:
+    | '/'
+    | '/credits'
+    | '/final'
+    | '/gallery/$id'
+    | '/lesson/$id'
+    | '/reveal/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/credits'
+    | '/final'
+    | '/gallery/$id'
+    | '/lesson/$id'
+    | '/reveal/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -76,6 +104,7 @@ export interface RootRouteChildren {
   CreditsRoute: typeof CreditsRoute
   FinalRoute: typeof FinalRoute
   GalleryIdRoute: typeof GalleryIdRoute
+  LessonIdRoute: typeof LessonIdRoute
   RevealIdRoute: typeof RevealIdRoute
 }
 
@@ -109,6 +138,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RevealIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/lesson/$id': {
+      id: '/lesson/$id'
+      path: '/lesson/$id'
+      fullPath: '/lesson/$id'
+      preLoaderRoute: typeof LessonIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/gallery/$id': {
       id: '/gallery/$id'
       path: '/gallery/$id'
@@ -124,18 +160,9 @@ const rootRouteChildren: RootRouteChildren = {
   CreditsRoute: CreditsRoute,
   FinalRoute: FinalRoute,
   GalleryIdRoute: GalleryIdRoute,
+  LessonIdRoute: LessonIdRoute,
   RevealIdRoute: RevealIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
