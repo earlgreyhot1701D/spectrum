@@ -24,7 +24,7 @@ export const galleries: Gallery[] = [
     title: "Identity",
     theme: "Sunrise",
     introText:
-      "Sunrise was created in the spirit of the Transgender Pride Flag - pink, blue, and white rising together like light at the start of a new day. This gallery celebrates identity: the courage it takes to know yourself, and the beauty of living as who you truly are.",
+      "Sunrise was created in the spirit of the Transgender Pride Flag — pink, blue, and white rising together like light at the start of a new day. This gallery celebrates identity: the courage it takes to know yourself, and the beauty of living as who you truly are.",
     artworkPath: "/artwork/gallery-1-sunrise.png",
     questions: [
       {
@@ -45,7 +45,7 @@ export const galleries: Gallery[] = [
         options: ["Gilbert Baker", "Monica Helms", "Marsha P. Johnson", "Harvey Milk"],
         correctIndex: 1,
         explanation:
-          "Monica Helms, a transgender woman and U.S. Navy veteran, designed the Transgender Pride Flag in 1999. She founded the Transgender American Veterans Association in 2003 and donated the original flag to the Smithsonian National Museum of American History in 2014. All four people listed here made significant contributions to LGBTQIA+ history - each with a story worth knowing.",
+          "Monica Helms, a transgender woman and U.S. Navy veteran, designed the Transgender Pride Flag in 1999. She founded the Transgender American Veterans Association in 2003 and donated the original flag to the Smithsonian National Museum of American History in 2014. All four people listed here made significant contributions to LGBTQIA+ history — each with a story worth knowing.",
         sourceUrl: "https://nationalvmm.org/the-woman-behind-the-flag-honoring-monica-helms/",
       },
       {
@@ -59,7 +59,7 @@ export const galleries: Gallery[] = [
         ],
         correctIndex: 1,
         explanation:
-          "Transgender is an umbrella term for people whose gender identity differs from the sex they were assigned at birth. It does not require any medical procedures - it is about how a person knows and understands themselves. Transgender people have been part of every culture and every era of human history.",
+          "Transgender is an umbrella term for people whose gender identity differs from the sex they were assigned at birth. It does not require any medical procedures — it is about how a person knows and understands themselves. Transgender people have been part of every culture and every era of human history.",
         sourceUrl: "https://www.loc.gov/lgbt",
       },
       {
@@ -68,12 +68,12 @@ export const galleries: Gallery[] = [
         options: ["Janet Mock", "Laverne Cox", "Jazz Jennings", "Sylvia Rivera"],
         correctIndex: 1,
         explanation:
-          "Laverne Cox became the first openly transgender person to appear on the cover of Time magazine in June 2014. Known for her role in Orange Is the New Black, she has been a prominent voice for transgender rights and visibility. All four people listed here are important figures in transgender history and advocacy - each with a remarkable story worth knowing.",
+          "Laverne Cox became the first openly transgender person to appear on the cover of Time magazine in June 2014. Known for her role in Orange Is the New Black, she has been a prominent voice for transgender rights and visibility. All four people listed here are important figures in transgender history and advocacy — each with a remarkable story worth knowing.",
         sourceUrl: "https://www.loc.gov/lgbt",
       },
     ],
     lessonText:
-      "The Transgender Pride Flag is a symbol of something simple and profound: the right to be exactly who you are. Transgender people have always been part of human history - from Two-Spirit people honored in many Indigenous cultures, to the activists who stood at the center of the modern LGBTQIA+ rights movement. Today, transgender artists, athletes, scientists, and storytellers continue to shape our world in every field imaginable. Sunrise honors that journey - not just the courage it takes, but the joy that waits on the other side.",
+      "The Transgender Pride Flag is a symbol of something simple and profound: the right to be exactly who you are. Transgender people have always been part of human history — from Two-Spirit people honored in many Indigenous cultures, to the activists who stood at the center of the modern LGBTQIA+ rights movement. Today, transgender artists, athletes, scientists, and storytellers continue to shape our world in every field imaginable. Sunrise honors that journey — not just the courage it takes, but the joy that waits on the other side.",
     lessonCredit: "AI Assisted. Human Approved. Powered by NLP.",
     nextGallery: "2",
   },
@@ -82,7 +82,7 @@ export const galleries: Gallery[] = [
     title: "Community",
     theme: "The Gathering",
     introText:
-      "The Gathering was inspired by the warm reds, oranges, and pinks of the Lesbian Pride Flag - colors of fire, warmth, and connection. This gallery celebrates community: the power of people finding each other, building chosen families, and creating spaces where everyone belongs.",
+      "The Gathering was inspired by the warm reds, oranges, and pinks of the Lesbian Pride Flag — colors of fire, warmth, and connection. This gallery celebrates community: the power of people finding each other, building chosen families, and creating spaces where everyone belongs.",
     artworkPath: "/artwork/gallery-2-gathering.png",
     questions: [
       {
@@ -96,7 +96,7 @@ export const galleries: Gallery[] = [
         ],
         correctIndex: 1,
         explanation:
-          "On the modern Lesbian Pride Flag designed by Emily Gwen in 2018, the shades of orange represent gender nonconformity - celebrating lesbians who express their gender in ways that go beyond traditional expectations. The flag was designed to be more inclusive and to honor the full diversity of lesbian identity and expression.",
+          "On the modern Lesbian Pride Flag designed by Emily Gwen in 2018, the shades of orange represent gender nonconformity — celebrating lesbians who express their gender in ways that go beyond traditional expectations. The flag was designed to be more inclusive and to honor the full diversity of lesbian identity and expression.",
         sourceUrl: "https://www.glbthistory.org",
       },
       {
@@ -109,7 +109,7 @@ export const galleries: Gallery[] = [
         ],
         correctIndex: 1,
         explanation:
-          "Chosen family refers to close networks of friends and community members who offer the belonging and support that family traditionally provides. For many LGBTQIA+ people, chosen families have been a profound source of love, stability, and joy. These bonds are real, deep, and often lifelong - a reminder that family is also something we build.",
+          "Chosen family refers to close networks of friends and community members who offer the belonging and support that family traditionally provides. For many LGBTQIA+ people, chosen families have been a profound source of love, stability, and joy. These bonds are real, deep, and often lifelong — a reminder that family is also something we build.",
         sourceUrl: "https://pflag.org",
       },
       {
@@ -141,7 +141,7 @@ export const galleries: Gallery[] = [
       },
     ],
     lessonText:
-      "Community is one of the most powerful things human beings create together. For LGBTQIA+ people throughout history, finding community - in bars, bookstores, living rooms, marches, and online spaces - has been both an act of survival and an expression of joy. Lesbian women have been at the center of this work: organizing, creating, sheltering each other, and building spaces where people could arrive as strangers and leave as family. The Gathering honors every person who has ever opened a door and said: there is room for you here.",
+      "Community is one of the most powerful things human beings create together. For LGBTQIA+ people throughout history, finding community — in bars, bookstores, living rooms, marches, and online spaces — has been both an act of survival and an expression of joy. Lesbian women have been at the center of this work: organizing, creating, sheltering each other, and building spaces where people could arrive as strangers and leave as family. The Gathering honors every person who has ever opened a door and said: there is room for you here.",
     lessonCredit: "AI Assisted. Human Approved. Powered by NLP.",
     nextGallery: "3",
   },
@@ -150,7 +150,7 @@ export const galleries: Gallery[] = [
     title: "Expression",
     theme: "Many Selves",
     introText:
-      "Many Selves was created in the spirit of the Non-Binary Pride Flag - yellow, white, purple, and black layered together like fragments of a whole picture. This gallery celebrates expression: the many ways people show the world who they are, and the freedom that comes from living outside a single label.",
+      "Many Selves was created in the spirit of the Non-Binary Pride Flag — yellow, white, purple, and black layered together like fragments of a whole picture. This gallery celebrates expression: the many ways people show the world who they are, and the freedom that comes from living outside a single label.",
     artworkPath: "/artwork/gallery-3-many-selves.png",
     questions: [
       {
@@ -172,7 +172,7 @@ export const galleries: Gallery[] = [
         options: ["He/him only", "She/her only", "They/them", "One/one"],
         correctIndex: 2,
         explanation:
-          "Many non-binary people use they/them pronouns, though others use he/him, she/her, neopronouns like xe/xem, or a combination. The singular they has been used in English for centuries - it appears in Shakespeare and Jane Austen. Using someone's correct pronouns is a simple and meaningful way to show respect for who they are.",
+          "Many non-binary people use they/them pronouns, though others use he/him, she/her, neopronouns like xe/xem, or a combination. The singular they has been used in English for centuries — it appears in Shakespeare and Jane Austen. Using someone's correct pronouns is a simple and meaningful way to show respect for who they are.",
         sourceUrl: "https://pflag.org/resource/LGBTQ-glossary/",
       },
       {
@@ -199,12 +199,12 @@ export const galleries: Gallery[] = [
         ],
         correctIndex: 1,
         explanation:
-          "Gender expression is how a person outwardly presents their gender to the world - through choices like clothing, hairstyle, and mannerisms. It is different from gender identity (how you feel inside) and from biological sex. Gender expression can shift over time and belongs to everyone - there is no wrong way to show up as yourself.",
+          "Gender expression is how a person outwardly presents their gender to the world — through choices like clothing, hairstyle, and mannerisms. It is different from gender identity (how you feel inside) and from biological sex. Gender expression can shift over time and belongs to everyone — there is no wrong way to show up as yourself.",
         sourceUrl: "https://pflag.org/resource/LGBTQ-glossary/",
       },
     ],
     lessonText:
-      "Human beings have always found ways to express who they are - through art, clothing, language, and the stories we tell. The Non-Binary Pride Flag celebrates the truth that gender is not a binary switch but a wide, living landscape full of color. Many Selves honors every person who has ever mixed the categories, stepped outside the expected, and created something truer than what they were handed. You do not have to fit one shape to be whole. You never did.",
+      "Human beings have always found ways to express who they are — through art, clothing, language, and the stories we tell. The Non-Binary Pride Flag celebrates the truth that gender is not a binary switch but a wide, living landscape full of color. Many Selves honors every person who has ever mixed the categories, stepped outside the expected, and created something truer than what they were handed. You do not have to fit one shape to be whole. You never did.",
     lessonCredit: "AI Assisted. Human Approved. Powered by NLP.",
     nextGallery: "4",
   },
@@ -213,7 +213,7 @@ export const galleries: Gallery[] = [
     title: "Progress",
     theme: "The Tapestry",
     introText:
-      "The Tapestry was woven in the colors of the Progress Pride Flag - a rainbow expanded to include stripes of black, brown, pink, light blue, and white. This gallery celebrates progress: the hard-won victories of the LGBTQIA+ rights movement, and the understanding that progress must include everyone.",
+      "The Tapestry was woven in the colors of the Progress Pride Flag — a rainbow expanded to include stripes of black, brown, pink, light blue, and white. This gallery celebrates progress: the hard-won victories of the LGBTQIA+ rights movement, and the understanding that progress must include everyone.",
     artworkPath: "/artwork/gallery-4-tapestry.png",
     questions: [
       {
@@ -236,7 +236,7 @@ export const galleries: Gallery[] = [
         options: ["2003", "2010", "2015", "2020"],
         correctIndex: 2,
         explanation:
-          "In Obergefell v. Hodges, decided on June 26, 2015, the U.S. Supreme Court ruled that same-sex couples have a fundamental right to marry under the Fourteenth Amendment. The decision made same-sex marriage legal in all 50 states. The date falls during Pride Month - and for many people it remains one of the most significant moments in LGBTQIA+ civil rights history.",
+          "In Obergefell v. Hodges, decided on June 26, 2015, the U.S. Supreme Court ruled that same-sex couples have a fundamental right to marry under the Fourteenth Amendment. The decision made same-sex marriage legal in all 50 states. The date falls during Pride Month — and for many people it remains one of the most significant moments in LGBTQIA+ civil rights history.",
         sourceUrl: "https://www.supremecourt.gov/opinions/14pdf/14-556_3204.pdf",
       },
       {
@@ -250,7 +250,7 @@ export const galleries: Gallery[] = [
         ],
         correctIndex: 1,
         explanation:
-          "In the early morning hours of June 28, 1969, police raided the Stonewall Inn, a gay bar in Greenwich Village, New York City. Rather than dispersing, patrons and community members resisted - and the resistance continued for several days. The Stonewall Uprising galvanized the modern LGBTQIA+ rights movement. The following year, the first Pride march took place on its anniversary.",
+          "In the early morning hours of June 28, 1969, police raided the Stonewall Inn, a gay bar in Greenwich Village, New York City. Rather than dispersing, patrons and community members resisted — and the resistance continued for several days. The Stonewall Uprising galvanized the modern LGBTQIA+ rights movement. The following year, the first Pride march took place on its anniversary.",
         sourceUrl: "https://guides.loc.gov/lgbtq-studies/stonewall-era",
       },
       {
@@ -264,7 +264,7 @@ export const galleries: Gallery[] = [
       },
     ],
     lessonText:
-      "Progress is not a straight line - and it belongs to everyone. The Progress Pride Flag was designed as a reminder that the work of inclusion is ongoing, and that visibility must extend to LGBTQIA+ people of color, transgender people, and all those whose stories have been least told. The Tapestry honors the activists, organizers, and everyday people who showed up across generations - not because the path was easy, but because they believed in something worth building. Their work made more joy possible. That is what progress looks like.",
+      "Progress is not a straight line — and it belongs to everyone. The Progress Pride Flag was designed as a reminder that the work of inclusion is ongoing, and that visibility must extend to LGBTQIA+ people of color, transgender people, and all those whose stories have been least told. The Tapestry honors the activists, organizers, and everyday people who showed up across generations — not because the path was easy, but because they believed in something worth building. Their work made more joy possible. That is what progress looks like.",
     lessonCredit: "AI Assisted. Human Approved. Powered by NLP.",
     nextGallery: null,
   },
