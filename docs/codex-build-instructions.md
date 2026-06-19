@@ -1,9 +1,9 @@
-# Spectrum — Codex Build Instructions v1.5
+# Spectrum — Codex Build Instructions v1.6
 
 **Status:** Approved for Production  
 **Audience:** AI Coding Agents (primary: Codex), Human Contributors  
-**Supersedes:** Codex Build Instructions v1.4  
-**Changes in v1.5:** Self-check layer added. Loop guardrails added. Token budget controls added. Hard stop rules added.
+**Supersedes:** Codex Build Instructions v1.5  
+**Changes in v1.6:** Pre-approved dependency list added. Dependency hard stop removed — Codex may install from approved list without asking. Build report format added. Codex writes to docs/build-report.md after each milestone.
 
 ---
 
@@ -41,7 +41,7 @@ These rules exist to prevent runaway agent loops and unnecessary token spend. Th
 
 1. **You have made 3 attempts to fix the same error and it is still failing.** Do not attempt a 4th fix. Report what you tried and what failed.
 
-2. **You are about to install a new dependency.** Stop. State the package name, why you need it, and what alternative exists. Do not install without human approval.
+2. **You need a dependency not on the Pre-Approved Dependency List below.** Stop. State the package name, why you need it, and what alternative exists. Do not install without human approval.
 
 3. **You are about to modify a file outside the current milestone scope.** Stop. State which file and why. Do not modify without human approval.
 
@@ -50,6 +50,19 @@ These rules exist to prevent runaway agent loops and unnecessary token spend. Th
 5. **You have been working on a single component for more than 3 iterations.** Stop. Report what is blocking you.
 
 6. **You are uncertain what to build.** Stop. Ask. Do not guess and implement.
+
+### Pre-Approved Dependency List
+
+You may install any of the following without asking. No other packages may be installed without human approval.
+
+```
+framer-motion       — animations (already installed)
+tailwindcss         — styling (already installed)
+@tanstack/react-router — routing (already installed)
+clsx                — conditional classnames
+```
+
+That is the complete approved list. If you need something not on it, stop and report.
 
 ### Loop Prevention
 
@@ -92,6 +105,40 @@ RESULT: PASS / FAIL
 ```
 
 Do not mark a milestone complete unless all items are PASS.
+
+---
+
+## Build Report
+
+After every milestone — whether it passes or fails — write a report to `docs/build-report.md`. Do not skip this step. This file is how the human reviews what happened without reading every line of code.
+
+### Report format
+
+```markdown
+# Spectrum — Build Report
+
+## Milestone [N] — [Name]
+**Status:** COMPLETE / BLOCKED  
+**Date:** [date]
+
+### What was built
+- [list of files created or modified]
+
+### Self-check results
+- [ ] [check item] — PASS/FAIL
+- [ ] [check item] — PASS/FAIL
+
+### Dependencies installed
+- [package name] — [reason], or "None"
+
+### Issues encountered
+- [description of any problems and how they were resolved], or "None"
+
+### Notes for next milestone
+- [anything the human should know before continuing]
+```
+
+Append each milestone report to the file. Do not overwrite previous reports. The full file is a running log of the build.
 
 ---
 
