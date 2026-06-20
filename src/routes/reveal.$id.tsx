@@ -14,13 +14,11 @@ function RevealExperience() {
   const [questionIndex, setQuestionIndex] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [revealedCount, setRevealedCount] = useState(0);
-  const [removedSections, setRemovedSections] = useState<number[]>([]);
 
   useEffect(() => {
     setQuestionIndex(0);
     setSelectedIndex(null);
     setRevealedCount(0);
-    setRemovedSections([]);
   }, [id]);
 
   if (!gallery) {
@@ -41,12 +39,16 @@ function RevealExperience() {
     const nextRevealed = Math.min(revealedCount + 1, gallery.questions.length);
     setSelectedIndex(index);
     setRevealedCount(nextRevealed);
-  }
 
-  function goToNextQuestion() {
-    if (!answered || questionIndex >= gallery.questions.length - 1) return;
-    setQuestionIndex((current) => current + 1);
-    setSelectedIndex(null);
+    if (questionIndex < gallery.questions.length - 1) {
+      window.setTimeout(
+        () => {
+          setQuestionIndex((current) => current + 1);
+          setSelectedIndex(null);
+        },
+        index === question.correctIndex ? 1500 : 3000,
+      );
+    }
   }
 
   return (
@@ -64,28 +66,18 @@ function RevealExperience() {
             className="h-full min-h-[48vh] w-full object-cover"
           />
           <div className="absolute inset-0 grid grid-cols-2 grid-rows-2" aria-hidden="true">
-            {[0, 1, 2, 3]
-              .filter((section) => !removedSections.includes(section))
-              .map((section) => {
-                const isRevealed = section < revealedCount;
-
-                return (
-                  <motion.div
-                    key={section}
-                    className="border border-[#f3ead3]/10 bg-[#090909]/90 backdrop-blur-sm"
-                    initial={{ opacity: 1 }}
-                    animate={{ opacity: isRevealed ? 0 : 1 }}
-                    transition={{ duration: prefersReducedMotion ? 0 : 0.8, ease: "easeOut" }}
-                    onAnimationComplete={() => {
-                      if (isRevealed) {
-                        setRemovedSections((current) =>
-                          current.includes(section) ? current : [...current, section],
-                        );
-                      }
-                    }}
-                  />
-                );
-              })}
+            {[0, 1, 2, 3].map((section) =>
+              section >= revealedCount ? (
+                <motion.div
+                  key={section}
+                  className="border border-[#f3ead3]/10 bg-[#090909]/90 backdrop-blur-sm"
+                  initial={{ opacity: 1 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: prefersReducedMotion ? 0 : 0.8, ease: "easeOut" }}
+                />
+              ) : null,
+            )}
           </div>
         </div>
 
@@ -160,15 +152,6 @@ function RevealExperience() {
                   </motion.div>
                 ) : null}
               </AnimatePresence>
-              {answered && questionIndex < gallery.questions.length - 1 ? (
-                <button
-                  type="button"
-                  onClick={goToNextQuestion}
-                  className="mt-5 inline-flex rounded-full border border-[#c9a84c] px-7 py-3 text-sm font-semibold uppercase tracking-[0.24em] text-[#f3ead3] transition hover:bg-[#c9a84c] hover:text-[#1a1a1a] focus:outline-none focus:ring-2 focus:ring-[#f3ead3]"
-                >
-                  Next Question
-                </button>
-              ) : null}
             </div>
           ) : (
             <div className="mt-8">
